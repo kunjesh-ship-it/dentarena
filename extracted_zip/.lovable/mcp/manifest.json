@@ -1,0 +1,144 @@
+{
+  "version": 1,
+  "sdk_version": "0.26.2",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "dent-arena-premier-site",
+      "version": "0.1.0",
+      "title": "Dent Arena Premier Site"
+    },
+    "tools": [
+      {
+        "name": "get_clinic_info",
+        "title": "Get clinic info",
+        "description": "Public contact details for Dent Arena in Surat: name, tagline, phone, WhatsApp number, social links and a summary of both branches.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_locations",
+        "title": "List branches",
+        "description": "Both Dent Arena branches (Bhatar and Vesu) with address, description, directions link, and which details are still awaiting confirmation from the clinic.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_treatments",
+        "title": "List treatments",
+        "description": "List the dental treatments Dent Arena publishes, optionally filtered by category, branch or a free-text query. Returns slugs for use with get_treatment.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "category": {
+              "description": "Filter by treatment category.",
+              "type": "string",
+              "enum": [
+                "restorative",
+                "cosmetic",
+                "orthodontics",
+                "preventive",
+                "surgical",
+                "specialist"
+              ]
+            },
+            "branch": {
+              "description": "Only treatments available at this branch.",
+              "type": "string",
+              "enum": [
+                "bhatar",
+                "vesu"
+              ]
+            },
+            "query": {
+              "description": "Free-text match against title and summary.",
+              "type": "string"
+            }
+          }
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_treatment",
+        "title": "Get treatment details",
+        "description": "Full educational detail for one treatment: what it is, who needs it, signs, steps, recovery, benefits, limitations, risks, aftercare, FAQs and related treatments. No prices or outcome guarantees exist in this data.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Treatment slug, e.g. root-canal-treatment."
+            }
+          },
+          "required": [
+            "slug"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "list_doctors",
+        "title": "List dentists",
+        "description": "Dentists published on the Dent Arena site. Qualifications, registration numbers and experience are returned only when confirmed by the clinic; otherwise a pending marker is returned. Pass a slug for one dentist's full profile.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "slug": {
+              "description": "Optional doctor slug, e.g. dr-mayank-shah.",
+              "type": "string"
+            },
+            "branch": {
+              "description": "Only dentists seeing patients at this branch.",
+              "type": "string",
+              "enum": [
+                "bhatar",
+                "vesu"
+              ]
+            }
+          }
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
