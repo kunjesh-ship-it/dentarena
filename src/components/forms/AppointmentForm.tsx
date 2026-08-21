@@ -298,6 +298,7 @@ export function AppointmentForm() {
         </div>
       </div>
 
+
       <Button type="submit" variant="whatsapp" size="lg" className="mt-7 w-full sm:w-auto">
         <MessageCircle aria-hidden="true" />
         Request Appointment on WhatsApp
