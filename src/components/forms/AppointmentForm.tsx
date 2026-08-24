@@ -83,7 +83,7 @@ export function AppointmentForm() {
 
   const fieldError = (field: Field) =>
     errors[field] ? (
-      <p id={`${id}-${field}-error`} className="mt-1.5 text-sm font-medium text-destructive">
+      <p id={`${id}-${field}-error`} role="alert" className="mt-1.5 text-sm font-medium text-destructive">
         {errors[field]}
       </p>
     ) : null;
@@ -139,6 +139,7 @@ export function AppointmentForm() {
             type="text"
             autoComplete="name"
             required
+            aria-required="true"
             maxLength={80}
             aria-invalid={Boolean(errors.name)}
             aria-describedby={describedBy("name")}
@@ -158,6 +159,7 @@ export function AppointmentForm() {
             inputMode="tel"
             autoComplete="tel"
             required
+            aria-required="true"
             maxLength={20}
             placeholder="+91 98765 43210"
             aria-invalid={Boolean(errors.mobile)}
@@ -175,6 +177,7 @@ export function AppointmentForm() {
             id={`${id}-branch`}
             name="branch"
             required
+            aria-required="true"
             defaultValue=""
             aria-invalid={Boolean(errors.branch)}
             aria-describedby={describedBy("branch")}
@@ -201,6 +204,7 @@ export function AppointmentForm() {
             id={`${id}-concern`}
             name="concern"
             required
+            aria-required="true"
             defaultValue=""
             aria-invalid={Boolean(errors.concern)}
             aria-describedby={describedBy("concern")}
@@ -229,6 +233,7 @@ export function AppointmentForm() {
             name="date"
             type="date"
             required
+            aria-required="true"
             aria-invalid={Boolean(errors.date)}
             aria-describedby={describedBy("date")}
             className={inputClass}
@@ -244,6 +249,7 @@ export function AppointmentForm() {
             id={`${id}-time`}
             name="time"
             required
+            aria-required="true"
             defaultValue=""
             aria-invalid={Boolean(errors.time)}
             aria-describedby={describedBy("time")}

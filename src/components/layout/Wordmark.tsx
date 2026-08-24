@@ -31,7 +31,7 @@ export function Wordmark({
       >
         {clinic.tagline}
       </span> */}
-      <img src="images/gallery/logo.png" alt="logo" className="w-50" />
+      <img src="images/gallery/logo.png" alt="logo" className="w-50 logo" />
     </Link>
   );
 }

@@ -20,11 +20,11 @@ export const doctors: Doctor[] = [
     languages: placeholder("Languages spoken during consultations"),
     locationIds: ["bhatar", "vesu"],
     photo: {
-      src: "/images/gallery/mayank-shah.png",
+      src: "/images/gallery/mayank-shah.jpg",
       alt: "Dr. Mayank M. Shah - Dental Surgeon & Implantologist at Dent Arena",
       width: 800,
       height: 800,
-      className: "object-cover object-top",
+      className: "object-cover object-center",
     },
     treatmentSlugs: placeholder("Treatments personally provided by Dr. Mayank M. Shah"),
 
@@ -46,7 +46,7 @@ export const doctors: Doctor[] = [
       alt: "Dr. Minal M. Shah - Smile Design Specialist at Dent Arena",
       width: 800,
       height: 800,
-      className: "object-cover object-top",
+      className: "object-cover object-center",
     },
     treatmentSlugs: placeholder("Treatments personally provided by Dr. Minal M. Shah"),    
   },

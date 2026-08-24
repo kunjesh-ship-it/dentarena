@@ -4,8 +4,8 @@ export type CursorVariant = 'default' | 'link' | 'button' | 'image' | 'text' | '
 
 interface CursorState {
   variant: CursorVariant;
-  text?: string;
-  setVariant: (variant: CursorVariant, text?: string) => void;
+  text?: string | undefined;
+  setVariant: (variant: CursorVariant, text?: string | undefined) => void;
 }
 
 export const useCursorStore = create<CursorState>((set) => ({

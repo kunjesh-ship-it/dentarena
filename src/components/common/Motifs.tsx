@@ -1,3 +1,4 @@
+import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 /** Thin arc echoing the arch mask. Decorative only. */
@@ -35,21 +36,43 @@ export function SmileDots({ className }: { className?: string }) {
   );
 }
 
-/** Abstract single-stroke tooth silhouette, used as a large faint watermark. */
-export function EnamelOutline({ className }: { className?: string }) {
+/** Abstract single-stroke tooth silhouette with continuous smooth floating loop animation. */
+export function EnamelOutline({
+  className,
+  animate = true,
+}: {
+  className?: string;
+  animate?: boolean;
+}) {
+  const shouldReduceMotion = useReducedMotion();
+
   return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 200 240"
-      fill="none"
-      className={cn("text-accent", className)}
-    >
-      <path
-        d="M100 18c26 0 34-12 58-12 26 0 36 22 36 52 0 34-14 48-20 84-6 34-8 92-30 92-18 0-16-52-28-76-6-12-26-12-32 0-12 24-10 76-28 76-22 0-24-58-30-92C20 106 6 92 6 58 6 28 16 6 42 6c24 0 32 12 58 12Z"
-        stroke="currentColor"
-        strokeWidth="2.5"
-      />
-    </svg>
+    <div aria-hidden="true" className={cn("pointer-events-none text-accent", className)}>
+      <motion.svg
+        viewBox="0 0 200 240"
+        fill="none"
+        animate={
+          shouldReduceMotion || !animate
+            ? false
+            : {
+                y: [-16, 16, -16],
+                rotate: [-1, 1, -1],
+              }
+        }
+        transition={{
+          duration: 5.5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+        className="size-full text-current"
+      >
+        <path
+          d="M100 18c26 0 34-12 58-12 26 0 36 22 36 52 0 34-14 48-20 84-6 34-8 92-30 92-18 0-16-52-28-76-6-12-26-12-32 0-12 24-10 76-28 76-22 0-24-58-30-92C20 106 6 92 6 58 6 28 16 6 42 6c24 0 32 12 58 12Z"
+          stroke="currentColor"
+          strokeWidth="2.5"
+        />
+      </motion.svg>
+    </div>
   );
 }
 

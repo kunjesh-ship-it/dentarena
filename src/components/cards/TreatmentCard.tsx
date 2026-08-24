@@ -30,7 +30,7 @@ export function TreatmentCard({
         <p className="eyebrow">{categoryLabels[treatment.category]}</p>
       </div>
 
-      <h3 className={cn("mt-4 display-3", featured && "sm:text-3xl")}>
+      <h3 className={cn("mt-4 display-3 treatment-card-title", featured && "sm:text-3xl")}>
         <Link
           to="/treatments/$slug"
           params={{ slug: treatment.slug }}
@@ -40,7 +40,7 @@ export function TreatmentCard({
         </Link>
       </h3>
 
-      <p className={cn("mt-3 text-sm leading-relaxed", featured && "measure sm:text-base")}>
+      <p className={cn("mt-3 text-sm leading-relaxed treatment-description", featured && "measure sm:text-base")}>
         {treatment.summary}
       </p>
 

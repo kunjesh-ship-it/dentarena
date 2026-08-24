@@ -161,22 +161,23 @@ export function SiteHeader() {
                 ref={closeRef}
                 type="button"
                 onClick={() => setOpen(false)}
-                className="inline-flex size-11 items-center justify-center rounded-full border border-border text-ink"
+                aria-label="Close navigation menu"
+                className="inline-flex size-11 items-center justify-center rounded-full border border-border text-ink hover:bg-secondary transition-colors"
               >
                 <X aria-hidden="true" />
                 <span className="sr-only">Close menu</span>
               </button>
             </div>
 
-            <nav aria-label="Mobile" className="mt-8">
-              <ul className="flex flex-col gap-5">
+            <nav aria-label="Mobile navigation" className="mt-8">
+              <ul className="flex flex-col gap-3">
                 {primaryNav.map((item) => (
                   <li key={item.to}>
                     <Link
                       to={item.to}
                       onClick={() => setOpen(false)}
                       activeProps={{ "data-active": "true" }}
-                      className="font-display text-[1.375rem] font-semibold text-ink data-[active=true]:text-primary"
+                      className="flex min-h-11 items-center font-display text-[1.375rem] font-semibold text-ink data-[active=true]:text-primary hover:text-primary transition-colors"
                     >
                       {item.label}
                     </Link>

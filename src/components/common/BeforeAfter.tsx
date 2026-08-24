@@ -95,6 +95,10 @@ function SliderCompare({ item }: { item: CaseStudy }) {
         value={position}
         onChange={(event) => setPosition(Number(event.target.value))}
         aria-labelledby={labelId}
+        aria-label={`Before and after comparison slider for ${item.title}`}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={position}
         className="mt-2 w-full accent-[var(--color-primary)]"
       />
     </div>

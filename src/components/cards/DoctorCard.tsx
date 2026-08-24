@@ -27,7 +27,7 @@ export function DoctorCard({ doctor }: { doctor: Doctor }) {
       onMouseLeave={() => setVariant("default")}
       className="group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-border bg-card transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-soft"
     >
-      <div className="p-3 pb-0">
+      <div className="p-3 pb-0 team-card">
         {photo ? (
           <img
             src={photo.src}
@@ -53,7 +53,7 @@ export function DoctorCard({ doctor }: { doctor: Doctor }) {
       </div>
 
       <div className="flex flex-1 flex-col p-6">
-        <h3 className="display-3">
+        <h3 className="display-3 team-member-name">
           <Link
             to="/doctors/$slug"
             params={{ slug: doctor.slug }}
@@ -62,12 +62,12 @@ export function DoctorCard({ doctor }: { doctor: Doctor }) {
             {doctor.name}
           </Link>
         </h3>
-        <p className="mt-2 smallcaps text-muted-foreground">{role ?? "Dentist at Dent Arena"}</p>
+        <p className="mt-2 smallcaps text-muted-foreground team-member-role">{role ?? "Dentist at Dent Arena"}</p>
 
-        <dl className="mt-5 space-y-2 text-sm">
-          <div className="flex gap-2">
-            <dt className="shrink-0 text-muted-foreground">Qualifications</dt>
-            <dd className="min-w-0">
+        <dl className="mt-2 mt-sm-5 space-y-2 text-sm">
+          <div className="flex gap-2 team-qualifications-container">
+            <dt className="shrink-0 text-muted-foreground team-qualifications">Qualifications</dt>
+            <dd className="min-w-0 team-qualifications">
               {qualifications ? (
                 qualifications.join(", ")
               ) : (
@@ -81,7 +81,7 @@ export function DoctorCard({ doctor }: { doctor: Doctor }) {
           </div>
         </dl>
 
-        <span className="mt-6 text-sm font-medium text-primary">View profile</span>
+        <span className="mt-2 mt-sm-6 text-sm font-medium text-primary">View profile</span>
       </div>
     </article>
   );

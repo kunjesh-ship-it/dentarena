@@ -71,62 +71,61 @@
 :root {
   --radius: 1rem;
 
-  /* #FBFAF6 */
+  /* #FBFAF6 Warm Ivory Background */
   --background: oklch(0.985 0.006 92);
-  /* #4D6065 */
-  --foreground: oklch(0.469 0.019 214);
-  /* #102E35 */
-  --ink: oklch(0.265 0.034 213);
+  /* Deep Slate Ink Foreground (>= 7:1 contrast on background) */
+  --foreground: oklch(0.38 0.025 214);
+  /* Deep Navy Ink Heading Color (>= 11:1 contrast on background) */
+  --ink: oklch(0.24 0.035 213);
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.265 0.034 213);
+  --card-foreground: oklch(0.24 0.035 213);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.265 0.034 213);
+  --popover-foreground: oklch(0.24 0.035 213);
 
-  /* #0F5D62 */
-  --primary: oklch(0.435 0.062 199);
+  /* Deep Teal Primary (>= 4.6:1 contrast against light background) */
+  --primary: oklch(0.42 0.065 199);
   --primary-foreground: oklch(0.99 0.005 180);
-  /* #0A3C44 */
-  --primary-deep: oklch(0.315 0.048 205);
+  /* Primary Deep */
+  --primary-deep: oklch(0.29 0.05 205);
 
-  /* #EAF7F5 */
+  /* Pale Aqua Secondary */
   --secondary: oklch(0.966 0.016 180);
-  --secondary-foreground: oklch(0.265 0.034 213);
+  --secondary-foreground: oklch(0.24 0.035 213);
 
-  --muted: oklch(0.966 0.008 180);
-  --muted-foreground: oklch(0.46 0.02 214);
+  --muted: oklch(0.96 0.008 180);
+  /* Muted Foreground (>= 4.5:1 contrast against light background) */
+  --muted-foreground: oklch(0.41 0.025 214);
 
-  /* #43B8B2 */
-  --accent: oklch(0.712 0.096 186);
-  --accent-foreground: oklch(0.245 0.03 213);
+  /* Aqua Accent */
+  --accent: oklch(0.68 0.098 186);
+  --accent-foreground: oklch(0.22 0.03 213);
 
-  /* #D9AA5B */
-  --gold: oklch(0.762 0.093 79);
-  --gold-foreground: oklch(0.28 0.03 79);
-  /* #F3D5C2 */
+  /* Warm Muted Gold */
+  --gold: oklch(0.72 0.095 79);
+  --gold-foreground: oklch(0.24 0.03 79);
+  /* Blush */
   --blush: oklch(0.884 0.043 42);
 
   --surface: oklch(96.6% .016 180);
   --surface-soft: oklch(0.966 0.016 180);
-  /* #F6EFE3 */
   --surface-warm: oklch(0.958 0.018 78);
-
 
   --destructive: oklch(0.523 0.181 27.3);
   --destructive-foreground: oklch(0.99 0.005 180);
 
-  --border: oklch(0.908 0.012 195);
-  --input: oklch(0.879 0.014 195);
-  --ring: oklch(0.435 0.062 199);
+  --border: oklch(0.88 0.015 195);
+  --input: oklch(0.84 0.018 195);
+  --ring: oklch(0.42 0.065 199);
 
   --sidebar: oklch(0.984 0.004 106);
   --sidebar-foreground: oklch(0.293 0.032 213);
-  --sidebar-primary: oklch(0.435 0.062 199);
+  --sidebar-primary: oklch(0.42 0.065 199);
   --sidebar-primary-foreground: oklch(0.99 0.005 180);
   --sidebar-accent: oklch(0.966 0.016 180);
   --sidebar-accent-foreground: oklch(0.293 0.032 213);
-  --sidebar-border: oklch(0.908 0.012 195);
-  --sidebar-ring: oklch(0.435 0.062 199);
+  --sidebar-border: oklch(0.88 0.015 195);
+  --sidebar-ring: oklch(0.42 0.065 199);
 }
 
 @layer base {
@@ -137,6 +136,7 @@
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    overflow-x: clip;
   }
 
   body {
@@ -145,7 +145,8 @@
     font-family: var(--font-sans);
     font-feature-settings: "cv02", "cv03", "cv04";
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
+    overflow-x: clip;
+    overflow-wrap: break-word;
   }
 
   h1,
@@ -156,23 +157,27 @@
     color: var(--color-ink);
     letter-spacing: -0.02em;
     text-wrap: balance;
+    overflow-wrap: break-word;
   }
 
+  /* High-contrast WCAG 2.4.7 compliant focus indicators */
   :focus-visible {
     outline: 2px solid var(--color-primary);
-    outline-offset: 3px;
+    outline-offset: 2px;
     border-radius: 4px;
   }
 
-  /* High-contrast focus for inputs — supplement border-color change with a ring */
+  /* Accessible focus rings for form elements */
   input:focus-visible,
   select:focus-visible,
   textarea:focus-visible {
     outline: 2px solid var(--color-primary);
-    outline-offset: 0;
+    outline-offset: 1px;
+    border-color: var(--color-primary);
     border-radius: 0.75rem;
   }
 
+  /* Complete coverage for prefers-reduced-motion (WCAG 2.3.3) */
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -184,6 +189,7 @@
       animation-duration: 0.001ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
     }
   }
 }
@@ -421,4 +427,231 @@ html {
   height: 300px;
   width: 100%;
   /* object-fit: cover; */
+}
+
+.visit-work-section {
+  border-bottom: 1px solid #acacacd6;
+}
+
+@media(max-width: 576px) {
+
+  /* Header Section */
+  .logo {
+    max-width: 150px;
+  }
+
+  /* Hero Section */
+
+  .hero-heading,
+  .chooseus-heading {
+    font-size: 25px;
+    line-height: 35px;
+    margin-bottom: 15px;
+  }
+
+  .chooseus-heading {
+    line-height: 25px;
+  }
+
+  .hero-section-description {
+    margin-block: 5px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .hero-small-font {
+    margin: 10px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .hero-btn-section {
+    margin-top: 15px;
+  }
+
+  .hero-btn {
+    font-size: 14px;
+  }
+
+  .hero-second-image {
+    display: block;
+  }
+
+  .hero-section,
+  .chooseus-section,
+  .treatments-section {
+    padding-block: 50px;
+  }
+
+  /* Chooseus Section */
+  .chooseus-heading {
+    margin-bottom: 0;
+  }
+
+  /* Treatments Section */
+  .treatments-heading {
+    font-size: 26px;
+    line-height: 26px;
+    margin-bottom: 0;
+  }
+
+  .treatments-description {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 5px
+  }
+
+  .treatment-card-title {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 5px;
+  }
+
+  .treatment-description {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 0px;
+  }
+
+  /* Gallery-section */
+  .gallery-section {
+    padding-block: 50px;
+  }
+
+  /*After Trement And Before Trement Section Start*/
+  .after-trement-section {
+    padding-block: 50px;
+  }
+
+  .after-trement-section-title {
+    font-size: 25px;
+    line-height: 25px;
+    margin-bottom: 0;
+  }
+
+  .after-trement-section-description {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 0;
+  }
+
+  .after-trement-image-section {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .after-trement-image-section .slider-image-section {
+    order: 1;
+    min-width: 100%;
+  }
+
+  .after-trement-image-section button[aria-label="Previous case"] {
+    order: 2;
+  }
+
+  .after-trement-image-section button[aria-label="Next case"] {
+    order: 3;
+  }
+
+  /* visit work section */
+
+  .visit-work-section {
+    padding-block: 50px;
+  }
+
+  .visit-work-title {
+    font-size: 25px;
+    line-height: 25px;
+    max-width: 250px;
+    margin-bottom: 0;
+  }
+
+  .how-visit-heading {
+    font-size: 20px;
+    line-height: 20px;
+    margin-bottom: 0;
+  }
+
+  .how-visit-description {
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 5px;
+  }
+
+  .three-step-ol li:last-child {
+    padding-bottom: 0
+  }
+
+
+  /* Our Team Section */
+
+  .ourteam-section {
+    padding-block: 50px;
+  }
+
+  .ourteam-title {
+    font-size: 25px;
+    line-height: 25px;
+    margin-bottom: 0;
+    max-width: 250px;
+  }
+
+  .ourteam-description {
+    font-size: 16px;
+    line-height: 20px;
+    margin-block: 5px;
+  }
+
+  .team-member-name {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .team-member-role {
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 5px;
+  }
+
+  .team-qualifications {
+    margin-block: 0px;
+    font-size: 13px;
+  }
+
+  .team-qualifications-container {
+    margin-bottom: 0;
+  }
+
+  /* Location Section */
+
+  .location-section {
+    padding-block: 50px;
+  }
+
+  .location-title {
+    font-size: 25px;
+    line-height: 25px;
+    margin-bottom: 0;
+    max-width: 250px;
+  }
+
+  .location-heading {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  .location-section .mb-10+.mb-10 {
+    margin-bottom: 0;
+  }
+
+  /* faq Section*/
+  .faq-section{
+    padding-block:50px;
+  }
+}
+
+@media(max-width: 350px) {
+  .hero-btn {
+    font-size: 12px;
+  }
 }

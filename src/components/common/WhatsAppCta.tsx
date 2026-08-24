@@ -37,7 +37,7 @@ export function WhatsAppCtaSection({ context }: { context?: string }) {
             <h2 id="whatsapp-cta-heading" className="mt-3 text-3xl text-secondary sm:text-4xl">
               Send an appointment request on WhatsApp
             </h2>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-secondary/80">
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-secondary/90">
               Tell us your preferred branch, day and time. A request is not a confirmed booking
               &mdash; the team will reply to agree a slot that suits you. Nothing you type is stored
               on this website.

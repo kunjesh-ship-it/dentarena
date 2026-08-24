@@ -11,13 +11,13 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-ink text-secondary/85">
+    <footer className="border-t border-border bg-ink text-secondary/95">
       <Reveal isStaggerParent>
         <Container className="py-14">
           <Reveal className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)]">
           <div>
             <WordmarkFooter tone="default" />
-            <p className="mt-5 max-w-sm text-sm leading-relaxed">{clinic.intro}</p>
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-secondary/90">{clinic.intro}</p>
             <a
               href={telHref}
               className="mt-5 inline-flex min-h-11 items-center text-base font-semibold text-secondary underline-offset-4 hover:underline"
@@ -33,12 +33,12 @@ export function SiteFooter() {
                 <h3 className="font-display text-sm font-semibold tracking-wide text-secondary uppercase">
                   {group.title}
                 </h3>
-                <ul className="mt-4 space-y-2.5">
+                <ul className="mt-4 space-y-1">
                   {group.items.map((item) => (
                     <li key={item.to}>
                       <Link
                         to={item.to}
-                        className="inline-flex min-h-9 items-center text-sm underline-offset-4 hover:text-secondary hover:underline"
+                        className="inline-flex min-h-10 items-center text-sm text-secondary/90 underline-offset-4 hover:text-white hover:underline transition-colors"
                       >
                         {item.label}
                       </Link>
