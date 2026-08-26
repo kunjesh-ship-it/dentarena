@@ -141,9 +141,9 @@ function RootComponent() {
         Skip to main content
       </a>
       <Cursor />
-      <div className="flex min-h-dvh flex-col">
+      <div className="flex min-h-dvh flex-col main-section">
         <SiteHeader />
-        <main id="main" tabIndex={-1} className="flex-1 pb-20 outline-none md:pb-0">
+        <main id="main" tabIndex={-1} className="flex-1 pb-0 pb-sm-20 outline-none md:pb-0">
           <Outlet />
         </main>
         <SiteFooter />

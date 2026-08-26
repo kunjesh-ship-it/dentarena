@@ -989,7 +989,7 @@ export function HomeFaq() {
       <Container className="grid gap-10 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-5">
           <p className="eyebrow">Questions</p>
-          <h2 id="faq-heading" className="mt-4 display-2">
+          <h2 id="faq-heading" className="mt-4 display-2 faq-heading">
             Before you visit
           </h2>
           <Link
@@ -1016,24 +1016,24 @@ export function HomeCta() {
   return (
     <section
       aria-labelledby="home-cta-heading"
-      className="relative overflow-hidden bg-primary-deep band-xl text-secondary"
+      className="relative overflow-hidden bg-primary-deep band-xl text-secondary cta-section"
     >
       <EnamelOutline
-        className="absolute top-1/2 right-[-4rem] h-[28rem] -translate-y-1/2 text-secondary opacity-[0.12]"
+        className="absolute top-1/2 right-[-4rem] h-[28rem] -translate-y-1/2 text-secondary opacity-[0.12] dent-animation"
       />
       <Container className="relative text-center">
         <Reveal>
           <p className="eyebrow text-accent">Appointments</p>
-          <h2 id="home-cta-heading" className="mx-auto mt-4 max-w-3xl display-2 text-secondary">
+          <h2 id="home-cta-heading" className="mx-auto mt-4 max-w-3xl display-2 text-secondary cta-title">
             Send an appointment request on WhatsApp
           </h2>
-          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-secondary/80">
+          <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-secondary/80 cta-desc">
             Tell us your preferred branch, day and time. A request is not a confirmed booking — the team will reply to agree a slot that suits you. Nothing you type is stored on this website.
           </p>
         </Reveal>
 
         <Reveal delay={80} className="mt-9 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <Button asChild variant="whatsapp" size="lg">
+          <Button asChild variant="whatsapp" size="lg" className="hero-btn">
             <a href={generalEnquiryLink("Homepage CTA")} target="_blank" rel="noopener noreferrer">
               <MessageCircle aria-hidden="true" />
               Request appointment on WhatsApp

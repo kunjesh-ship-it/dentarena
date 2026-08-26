@@ -21,6 +21,8 @@ const categoryOrder: Treatment["category"][] = [
   "specialist",
 ];
 
+
+
 export const Route = createFileRoute("/treatments/")({
   head: () => ({
     ...pageMeta({
@@ -41,10 +43,11 @@ function TreatmentsIndexPage() {
         eyebrow="Treatments"
         title="Dental treatments at Dent Arena"
         description="Clear, plain-English explanations of the care we provide, so you know what to expect before you sit in the chair. Every page covers what the treatment involves, how many visits it usually takes and how to look after your teeth afterwards."
+        className="treatments-hero-section"
         breadcrumbs={crumbs}
       />
 
-      <Section>
+      <Section className="preventive-section">
         <div className="space-y-16">
           {categoryOrder.map((category) => {
             const items = publishedTreatments.filter((t) => t.category === category);
@@ -53,7 +56,7 @@ function TreatmentsIndexPage() {
 
             return (
               <div key={category}>
-                <h2 id={headingId} className="text-2xl sm:text-3xl">
+                <h2 id={headingId} className="text-2xl sm:text-3xl preventive-heading">
                   {categoryLabels[category]}
                 </h2>
                 <ul
@@ -72,7 +75,7 @@ function TreatmentsIndexPage() {
         </div>
       </Section>
 
-      <WhatsAppCtaSection context="Treatments page" />
+      <WhatsAppCtaSection context="Treatments page" className="cta-section-treatment" />
     </>
   );
 }

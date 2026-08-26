@@ -11,9 +11,9 @@ export function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border bg-ink text-secondary/95">
+    <footer className="border-t border-border bg-ink text-secondary/95 footer-section">
       <Reveal isStaggerParent>
-        <Container className="py-14">
+        <Container className="py-14 footer-in">
           <Reveal className="grid gap-10 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,2fr)]">
           <div>
             <WordmarkFooter tone="default" />
@@ -29,7 +29,7 @@ export function SiteFooter() {
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {footerNav.map((group) => (
-              <nav key={group.title} aria-label={group.title}>
+              <nav key={group.title} aria-label={group.title} className="footer-link-section">
                 <h3 className="font-display text-sm font-semibold tracking-wide text-secondary uppercase">
                   {group.title}
                 </h3>

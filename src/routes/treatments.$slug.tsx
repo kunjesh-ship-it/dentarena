@@ -50,11 +50,11 @@ export const Route = createFileRoute("/treatments/$slug")({
 
 function ListBlock({ title, items }: { title: string; items: string[] }) {
   return (
-    <div>
-      <h2 className="text-2xl">{title}</h2>
+    <div className="treatment-sub-section">
+      <h2 className="text-2xl treatment-sub-heading">{title}</h2>
       <ul className="mt-5 space-y-3">
         {items.map((item) => (
-          <li key={item} className="flex gap-3 text-sm leading-relaxed">
+          <li key={item} className="flex gap-3 text-sm leading-relaxed treatment-sub-description">
             <Check aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-primary" />
             <span>{item}</span>
           </li>
@@ -92,22 +92,22 @@ function TreatmentDetailPage() {
         </div>
       </PageHeader>
 
-      <Section>
+      <Section className="">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
           <article className="space-y-12">
-            <div>
-              <h2 className="text-2xl">What it is</h2>
-              <p className="mt-4 leading-relaxed">{treatment.whatItIs}</p>
+            <div className="treatment-sub-section">
+              <h2 className="text-2xl treatment-sub-heading">What it is </h2>
+              <p className="mt-4 leading-relaxed treatment-sub-description">{treatment.whatItIs}</p>
             </div>
 
             <ListBlock title="Who it may suit" items={treatment.whoNeedsIt} />
             <ListBlock title="Signs you may need it" items={treatment.signs} />
 
-            <div>
-              <h2 className="text-2xl">How the treatment works</h2>
+            <div className="treatment-sub-section">
+              <h2 className="text-2xl treatment-sub-heading">How the treatment works</h2>
               <ol className="mt-6 space-y-5">
                 {treatment.howItWorks.map((step, index) => (
-                  <li key={step.step} className="flex gap-4">
+                  <li key={step.step} className="flex gap-4 treatment-sub-description">
                     <span
                       aria-label={`Step ${index + 1}`}
                       className="grid size-8 shrink-0 place-items-center rounded-full bg-secondary font-display text-sm font-semibold text-primary"
@@ -123,17 +123,17 @@ function TreatmentDetailPage() {
               </ol>
             </div>
 
-            <div>
-              <h2 className="text-2xl">Visits and recovery</h2>
-              <p className="mt-4 leading-relaxed">{treatment.visitsAndRecovery}</p>
+            <div className="treatment-sub-section">
+              <h2 className="text-2xl treatment-sub-heading">Visits and recovery</h2>
+              <p className="mt-4 leading-relaxed treatment-sub-description">{treatment.visitsAndRecovery}</p>
             </div>
 
-            <div className="grid gap-8 sm:grid-cols-2">
+            <div className="grid gap-8 sm:grid-cols-2 limitation-section">
               <ListBlock title="Benefits" items={treatment.benefits} />
               <ListBlock title="Limitations" items={treatment.limitations} />
             </div>
 
-            <div className="rounded-2xl border border-border bg-surface-soft p-6">
+            <div className="rounded-2xl border border-border bg-surface-soft p-6 tretment-risk-section">
               <h2 className="text-2xl">Risks to be aware of</h2>
               <p className="mt-3 text-sm leading-relaxed">
                 Every dental procedure carries some risk. Your dentist will discuss these with you
@@ -203,7 +203,7 @@ function TreatmentDetailPage() {
       </Section>
 
       {doctors.length > 0 ? (
-        <Section labelledBy="treatment-doctors">
+        <Section labelledBy="treatment-doctors" className="treatment-doctor-section">
           <Container className="px-0">
             <h2 id="treatment-doctors" className="text-2xl sm:text-3xl">
               Dentists you can ask about this treatment
@@ -224,7 +224,7 @@ function TreatmentDetailPage() {
       ) : null}
 
       {related.length > 0 ? (
-        <Section tone="soft" labelledBy="related-treatments">
+        <Section tone="soft" labelledBy="related-treatments" className="related-treatments-section">
           <Container className="px-0">
             <h2 id="related-treatments" className="text-2xl sm:text-3xl">
               Related treatments
@@ -240,7 +240,7 @@ function TreatmentDetailPage() {
         </Section>
       ) : null}
 
-      <WhatsAppCtaSection context={treatment.title} />
+      <WhatsAppCtaSection context={treatment.title} className="cta-section-treatment" />
     </>
   );
 }

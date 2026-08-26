@@ -27,30 +27,30 @@ export function WhatsAppButton({
   );
 }
 
-export function WhatsAppCtaSection({ context }: { context?: string }) {
+export function WhatsAppCtaSection({ context, className }: { context?: string, className?: string }) {
   return (
-    <section aria-labelledby="whatsapp-cta-heading" className="bg-ink py-16 text-secondary sm:py-20">
+    <section aria-labelledby="whatsapp-cta-heading" className={cn("bg-ink py-16 text-secondary sm:py-20", className)}>
       <Container>
         <div className="grid gap-8 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] md:items-center">
           <div>
             <p className="eyebrow text-accent">Appointments</p>
-            <h2 id="whatsapp-cta-heading" className="mt-3 text-3xl text-secondary sm:text-4xl">
+            <h2 id="whatsapp-cta-heading" className="mt-3 text-3xl text-secondary sm:text-4xl cta-treatment-heading">
               Send an appointment request on WhatsApp
             </h2>
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-secondary/90">
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-secondary/90 cta-treatment-description">
               Tell us your preferred branch, day and time. A request is not a confirmed booking
               &mdash; the team will reply to agree a slot that suits you. Nothing you type is stored
               on this website.
             </p>
           </div>
           <div className="flex flex-col gap-3">
-            <Button asChild variant="whatsapp" size="lg">
+            <Button asChild variant="whatsapp" size="lg" className="hero-btn">
               <Link to="/book-appointment">
                 <MessageCircle aria-hidden="true" />
                 Request appointment
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-secondary/40 text-secondary hover:bg-secondary/10">
+            <Button asChild size="lg" variant="outline" className="border-secondary/40 text-secondary hover:bg-secondary/10 hero-btn">
               <a href={telHref}>
                 <Phone aria-hidden="true" />
                 Call {clinic.phoneDisplay}

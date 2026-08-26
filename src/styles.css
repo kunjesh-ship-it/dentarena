@@ -1,4 +1,4 @@
-@import "tailwindcss" source(none);
+@import "tailwindcss";
 @source "../src";
 @import "tw-animate-css";
 
@@ -423,6 +423,17 @@ html {
   background-color: var(--surface);
 }
 
+.c-select-form {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23243549' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 15px center !important;
+  background-size: 16px !important;
+  padding-right: 40px !important;
+}
+
 .gallery-image {
   height: 300px;
   width: 100%;
@@ -431,6 +442,12 @@ html {
 
 .visit-work-section {
   border-bottom: 1px solid #acacacd6;
+}
+
+@media(max-width: 991px) {
+  .main-section {
+    padding-bottom: 50px;
+  }
 }
 
 @media(max-width: 576px) {
@@ -469,7 +486,8 @@ html {
     margin-top: 15px;
   }
 
-  .hero-btn {
+  .hero-btn,
+  .hero-btn-section a {
     font-size: 14px;
   }
 
@@ -482,6 +500,7 @@ html {
   .treatments-section {
     padding-block: 50px;
   }
+
 
   /* Chooseus Section */
   .chooseus-heading {
@@ -645,13 +664,152 @@ html {
   }
 
   /* faq Section*/
-  .faq-section{
-    padding-block:50px;
+  .faq-section {
+    padding-block: 50px;
+  }
+
+  .faq-heading {
+    font-size: 25px;
+    line-height: 25px;
+    margin-bottom: 0;
+    max-width: 250px;
+  }
+
+  /* Cta Section */
+  .cta-section {
+    padding-block: 50px;
+  }
+
+  .cta-title {
+    font-size: 25px;
+    line-height: 25px;
+    margin-bottom: 0;
+    max-width: 250px;
+  }
+
+  .cta-desc {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .dent-animation {
+    width: 50%;
+  }
+
+  .mobile-header-nav li a {
+    font-size: 18px;
+    min-height: fit-content;
+    padding-block: 0px;
+  }
+
+  /* Footer Section Start */
+  .footer-section {
+    padding-block: 0px;
+  }
+
+  .footer-link-section .min-h-10 {
+    min-height: fit-content;
+  }
+
+  /* treatments Page hero section */
+  .treatments-hero-section {
+    padding-block: 50px;
+  }
+
+  .treatments-hero-title {
+    font-size: 25px;
+    margin-bottom: 0;
+    line-height: 25px;
+  }
+
+  .treatments-hero-description {
+    margin-top: 8px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  /* Preventive Section Section*/
+  .preventive-section {
+    padding-block: 50px;
+  }
+
+  .preventive-heading {
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  /* Cta Section  */
+  .cta-section-treatment {
+    padding-block: 50px;
+  }
+
+  .cta-treatment-title {
+    font-size: 25px;
+    line-height: 30px;
+    margin-bottom: 0;
+  }
+
+  .cta-treatment-heading {
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .cta-treatment-description {
+    font-size: 14px;
+    line-height: 20px;
+    margin-top: 5px;
+  }
+
+  .treatment-sub-description {
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+
+  .treatment-sub-section {
+    margin-bottom: 15px;
+  }
+
+  .treatment-main-sub-section {
+    margin-bottom: 50px !important;
+  }
+
+  .treatment-sub-heading {
+    font-size: 18px;
+    line-height: 20px;
+  }
+
+  .tretment-risk-section {
+    margin-top: 0;
+  }
+
+  .limitation-section {
+    margin-block: 15px;
+  }
+
+  .treatment-doctor-section {
+    padding-block: 0 50px;
+  }
+
+  .related-treatments-section {
+    padding-block: 50px;
+  }
+
+  .doctor-page-section {
+    padding-block: 50px;
+  }
+}
+
+@media(max-width: 374.98px) {
+  .direction-btn {
+    width: 100%;
+    text-align: center;
   }
 }
 
 @media(max-width: 350px) {
-  .hero-btn {
-    font-size: 12px;
+
+  .hero-btn,
+  .hero-btn-section a {
+    font-size: 11px;
   }
 }

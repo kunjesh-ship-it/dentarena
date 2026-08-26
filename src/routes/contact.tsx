@@ -129,12 +129,12 @@ function ContactPage() {
                 </div>
 
                 <div className="mt-5 flex flex-wrap gap-3">
-                  <Button asChild variant="outline">
+                  <Button asChild variant="outline" className="direction-btn" >
                     <a href={location.directionsUrl} target="_blank" rel="noopener noreferrer">
                       Get directions
                     </a>
                   </Button>
-                  <Button asChild variant="ghost">
+                  <Button asChild variant="ghost" className="direction-btn">
                     <Link to="/locations/$branch" params={{ branch: location.slug }}>
                       Branch details
                     </Link>

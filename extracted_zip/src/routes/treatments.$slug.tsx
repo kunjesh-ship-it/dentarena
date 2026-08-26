@@ -95,16 +95,16 @@ function TreatmentDetailPage() {
       <Section>
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.7fr)_minmax(0,1fr)]">
           <article className="space-y-12">
-            <div>
-              <h2 className="text-2xl">What it is</h2>
-              <p className="mt-4 leading-relaxed">{treatment.whatItIs}</p>
+            <div className="treatment-main-sub-section ">
+              <h2 className="text-2xl treatment-sub-heading">What it is 1  </h2>
+              <p className="mt-4 leading-relaxed treatment-sub-description">{treatment.whatItIs}</p>
             </div>
 
             <ListBlock title="Who it may suit" items={treatment.whoNeedsIt} />
             <ListBlock title="Signs you may need it" items={treatment.signs} />
 
-            <div>
-              <h2 className="text-2xl">How the treatment works</h2>
+            <div className="treatment-main-sub-section">
+              <h2 className="text-2xl treatment-sub-heading">How the treatment works12331</h2>
               <ol className="mt-6 space-y-5">
                 {treatment.howItWorks.map((step, index) => (
                   <li key={step.step} className="flex gap-4">

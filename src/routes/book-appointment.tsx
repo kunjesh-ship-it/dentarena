@@ -38,7 +38,7 @@ function BookAppointmentPage() {
       />
 
       <Section>
-        <div className="grid gap-10 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
+        <div className="grid gap-10 grid-cols-1 lg:grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)]">
           <AppointmentForm />
 
           <aside className="space-y-6">
@@ -91,39 +91,37 @@ function BookAppointmentPage() {
       </Section>
 
       <Section tone="soft">
-        <Container className="px-0">
-          <h2 className="font-display text-2xl sm:text-3xl">What happens next</h2>
-          <ol className="mt-8 grid gap-6 sm:grid-cols-3">
-            {[
-              {
-                title: "You send the request",
-                detail:
-                  "Your message opens in WhatsApp with the details you entered. Nothing is stored on this website.",
-              },
-              {
-                title: "We reply to confirm",
-                detail:
-                  "The team checks the diary and suggests a slot at your chosen branch, or the nearest alternative.",
-              },
-              {
-                title: "You come in",
-                detail:
-                  "Bring any previous X-rays, reports or a list of medicines you take. Arrive a few minutes early for your first visit.",
-              },
-            ].map((step, index) => (
-              <li key={step.title} className="rounded-2xl border border-border bg-card p-6">
-                <span
-                  aria-label={`Step ${index + 1}`}
-                  className="grid size-9 place-items-center rounded-full bg-primary font-display text-sm font-semibold text-primary-foreground"
-                >
-                  {index + 1}
-                </span>
-                <h3 className="mt-4 font-display text-base font-semibold text-ink">{step.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed">{step.detail}</p>
-              </li>
-            ))}
-          </ol>
-        </Container>
+        <h2 className="font-display text-2xl sm:text-3xl">What happens next</h2>
+        <ol className="mt-8 grid gap-6 sm:grid-cols-3">
+          {[
+            {
+              title: "You send the request",
+              detail:
+                "Your message opens in WhatsApp with the details you entered. Nothing is stored on this website.",
+            },
+            {
+              title: "We reply to confirm",
+              detail:
+                "The team checks the diary and suggests a slot at your chosen branch, or the nearest alternative.",
+            },
+            {
+              title: "You come in",
+              detail:
+                "Bring any previous X-rays, reports or a list of medicines you take. Arrive a few minutes early for your first visit.",
+            },
+          ].map((step, index) => (
+            <li key={step.title} className="rounded-2xl border border-border bg-card p-6">
+              <span
+                aria-label={`Step ${index + 1}`}
+                className="grid size-9 place-items-center rounded-full bg-primary font-display text-sm font-semibold text-primary-foreground"
+              >
+                {index + 1}
+              </span>
+              <h3 className="mt-4 font-display text-base font-semibold text-ink">{step.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed">{step.detail}</p>
+            </li>
+          ))}
+        </ol>
       </Section>
     </>
   );

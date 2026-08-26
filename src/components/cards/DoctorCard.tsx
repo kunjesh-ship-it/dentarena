@@ -25,7 +25,7 @@ export function DoctorCard({ doctor }: { doctor: Doctor }) {
     <article
       onMouseEnter={() => setVariant("image")}
       onMouseLeave={() => setVariant("default")}
-      className="group relative flex h-full flex-col overflow-hidden rounded-[2rem] border border-border bg-card transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-soft"
+      className="group relative flex h-full flex-col overflow-hidden rounded-[3rem] border border-border bg-card transition-[transform,box-shadow] duration-300 hover:-translate-y-1 hover:shadow-soft"
     >
       <div className="p-3 pb-0 team-card">
         {photo ? (

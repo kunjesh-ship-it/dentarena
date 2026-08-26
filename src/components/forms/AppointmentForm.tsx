@@ -95,7 +95,7 @@ export function AppointmentForm() {
       noValidate
       onSubmit={handleSubmit}
       aria-label="Appointment request form"
-      className="rounded-2xl border border-border bg-card p-6 sm:p-8"
+      className="rounded-2xl border border-border bg-card p-5 sm:p-8"
     >
       <div
         ref={summaryRef}
@@ -141,6 +141,7 @@ export function AppointmentForm() {
             required
             aria-required="true"
             maxLength={80}
+            placeholder="e.g. Rahul Sharma"
             aria-invalid={Boolean(errors.name)}
             aria-describedby={describedBy("name")}
             className={inputClass}
@@ -181,7 +182,7 @@ export function AppointmentForm() {
             defaultValue=""
             aria-invalid={Boolean(errors.branch)}
             aria-describedby={describedBy("branch")}
-            className={inputClass}
+            className={`${inputClass} c-select-form`}
           >
             <option value="" disabled>
               Choose a branch
@@ -208,7 +209,7 @@ export function AppointmentForm() {
             defaultValue=""
             aria-invalid={Boolean(errors.concern)}
             aria-describedby={describedBy("concern")}
-            className={inputClass}
+            className={`${inputClass} c-select-form`}
           >
             <option value="" disabled>
               Choose an option
@@ -236,7 +237,14 @@ export function AppointmentForm() {
             aria-required="true"
             aria-invalid={Boolean(errors.date)}
             aria-describedby={describedBy("date")}
-            className={inputClass}
+            className={`${inputClass} cursor-pointer`}
+            onClick={(e) => {
+              try {
+                e.currentTarget.showPicker();
+              } catch (err) {
+                // fall back to default browser behavior
+              }
+            }}
           />
           {fieldError("date")}
         </div>
@@ -253,7 +261,7 @@ export function AppointmentForm() {
             defaultValue=""
             aria-invalid={Boolean(errors.time)}
             aria-describedby={describedBy("time")}
-            className={inputClass}
+            className={`${inputClass} c-select-form`}
           >
             <option value="" disabled>
               Choose a time of day
