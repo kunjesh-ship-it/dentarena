@@ -29,7 +29,7 @@ export const Route = createFileRoute("/gallery")({
 
 function GalleryPage() {
   const authentic = galleryItems
-    .filter((item) => item.imageType === "authentic" && item.approved === true)
+    .filter((item) => item.imageType === "authentic" && item.approved === true && !item.showOnHome)
     .sort((a, b) => (a.displayOrder ?? 0) - (b.displayOrder ?? 0));
   const generic = galleryItems.filter((item) => item.imageType === "generic");
   const pending = galleryItems.filter((item) => item.imageType === "placeholder");

@@ -228,6 +228,8 @@ export interface GalleryItem {
   displayOrder?: number;
   aspectRatio: string;
   recommendedSize: string;
+  /** If true, this item appears on the home page only — not in the gallery page. */
+  showOnHome?: boolean;
   image?: {
     src: string;
     alt: string;
@@ -240,16 +242,36 @@ export interface GalleryItem {
 
 export const galleryItems: GalleryItem[] = [
   {
-    id: "clinic-exterior-signboard",
+    id: "1",
     category: "Clinic exterior",
     imageType: "authentic",
     approved: true,
     displayOrder: 1,
     aspectRatio: "16/9",
     recommendedSize: "1200 × 1800 px",
+    showOnHome: true,
     image: {
-      src: "/images/gallery/img-1.jpg",
+      src: "/images/gallery/g1.jpg",
       alt: "image 1",
+      width: 778,
+      height: 693,
+      className: "object-cover",
+    },
+    note: "Branch not confirmed for this photograph.",
+  },
+
+  {
+    id: "clinic-exterior-signboard",
+    category: "Clinic exterior",
+    imageType: "authentic",
+    approved: true,
+    displayOrder: 2,
+    aspectRatio: "16/9",
+    recommendedSize: "1200 × 1800 px",
+    showOnHome: true,
+    image: {
+      src: "/images/gallery/dent-arena-clinic-exterior-signboard.png",
+      alt: "dent-arena-clinic-exterior-signboard.png",
       width: 778,
       height: 693,
       className: "object-cover",
@@ -261,7 +283,7 @@ export const galleryItems: GalleryItem[] = [
     category: "Clinic exterior",
     imageType: "authentic",
     approved: true,
-    displayOrder: 1,
+    displayOrder: 3,
     aspectRatio: "16/9",
     recommendedSize: "1200 × 1800 px",
     image: {
@@ -278,7 +300,7 @@ export const galleryItems: GalleryItem[] = [
     category: "Clinic exterior",
     imageType: "authentic",
     approved: true,
-    displayOrder: 1,
+    displayOrder: 4,
     aspectRatio: "16/9",
     recommendedSize: "1200 × 1800 px",
     image: {
@@ -295,7 +317,7 @@ export const galleryItems: GalleryItem[] = [
     category: "Clinic exterior",
     imageType: "authentic",
     approved: true,
-    displayOrder: 1,
+    displayOrder: 5,
     aspectRatio: "16/9",
     recommendedSize: "1200 × 1800 px",
     image: {
@@ -312,7 +334,7 @@ export const galleryItems: GalleryItem[] = [
     category: "Clinic exterior",
     imageType: "authentic",
     approved: true,
-    displayOrder: 1,
+    displayOrder: 6,
     aspectRatio: "16/9",
     recommendedSize: "1200 × 1800 px",
     image: {
@@ -329,7 +351,7 @@ export const galleryItems: GalleryItem[] = [
     category: "Clinic exterior",
     imageType: "authentic",
     approved: true,
-    displayOrder: 1,
+    displayOrder: 7,
     aspectRatio: "16/9",
     recommendedSize: "1200 × 1800 px",
     image: {
@@ -346,7 +368,7 @@ export const galleryItems: GalleryItem[] = [
     category: "Clinic exterior",
     imageType: "authentic",
     approved: true,
-    displayOrder: 1,
+    displayOrder: 8,
     aspectRatio: "16/9",
     recommendedSize: "1200 × 1800 px",
     image: {
@@ -363,7 +385,7 @@ export const galleryItems: GalleryItem[] = [
     category: "Clinic exterior",
     imageType: "authentic",
     approved: true,
-    displayOrder: 1,
+    displayOrder: 9,
     aspectRatio: "16/9",
     recommendedSize: "1200 × 1800 px",
     image: {
@@ -380,7 +402,7 @@ export const galleryItems: GalleryItem[] = [
     category: "Clinic exterior",
     imageType: "authentic",
     approved: true,
-    displayOrder: 1,
+    displayOrder: 10,
     aspectRatio: "16/9",
     recommendedSize: "1200 × 1800 px",
     image: {
