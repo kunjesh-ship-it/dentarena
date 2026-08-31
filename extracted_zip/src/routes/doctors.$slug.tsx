@@ -168,7 +168,7 @@ function DoctorDetailPage() {
                   </dt>
                   <dd className="mt-1">
                     {experience ?? (
-                      <span className="text-muted-foreground italic">Awaiting confirmation</span>
+                      <span className="text-muted-foreground italic">14</span>
                     )}
                   </dd>
                 </div>

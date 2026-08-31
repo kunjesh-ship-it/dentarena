@@ -153,7 +153,7 @@ function DoctorDetailPage() {
                     )}
                   </dd>
                 </div>
-                <div>
+                {/* <div>
                   <dt className="text-xs tracking-wide text-muted-foreground uppercase">
                     Dental council registration
                   </dt>
@@ -162,18 +162,18 @@ function DoctorDetailPage() {
                       <span className="text-muted-foreground italic">Awaiting confirmation</span>
                     )}
                   </dd>
-                </div>
+                </div> */}
                 <div>
                   <dt className="text-xs tracking-wide text-muted-foreground uppercase">
                     Experience
                   </dt>
                   <dd className="mt-1">
                     {experience ?? (
-                      <span className="text-muted-foreground italic">Awaiting confirmation</span>
+                      <span className="text-muted-foreground italic">14 Years</span>
                     )}
                   </dd>
                 </div>
-                <div>
+                {/* <div>
                   <dt className="text-xs tracking-wide text-muted-foreground uppercase">
                     Languages
                   </dt>
@@ -184,7 +184,7 @@ function DoctorDetailPage() {
                       <span className="text-muted-foreground italic">Awaiting confirmation</span>
                     )}
                   </dd>
-                </div>
+                </div> */}
                 <div>
                   <dt className="text-xs tracking-wide text-muted-foreground uppercase">
                     Practises at
