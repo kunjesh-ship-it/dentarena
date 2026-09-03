@@ -57,6 +57,7 @@ function DoctorDetailPage() {
   const focusAreas = confirmed(doctor.focusAreas);
   const languages = confirmed(doctor.languages);
   const experience = confirmed(doctor.experience);
+  const description = confirmed(doctor.description);
   const registration = confirmed(doctor.registrationNumber);
   const doctorTreatments = getTreatmentsForDoctor(doctor);
   const treatmentScopeConfirmed = Boolean(confirmed(doctor.treatmentSlugs));
@@ -108,11 +109,23 @@ function DoctorDetailPage() {
                 </div>
               ) : (
                 <div className="mt-4">
-                  <p className="text-sm leading-relaxed">
-                    A full profile for {doctor.name} will be published once the clinic has confirmed
-                    the details. In the meantime, you are welcome to ask about their experience when
-                    you book.
-                  </p>
+                  {description ? (
+                    Array.isArray(description) ? (
+                      <div className="space-y-3 text-sm leading-relaxed">
+                        {description.map((item, idx) => (
+                          <p key={idx}>{item}</p>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-sm leading-relaxed">{description}</p>
+                    )
+                  ) : (
+                    <p className="text-sm leading-relaxed">
+                      A full profile for {doctor.name} will be published once the clinic has confirmed
+                      the details. In the meantime, you are welcome to ask about their experience when
+                      you book.
+                    </p>
+                  )}
                   {isPlaceholder(doctor.bio) ? (
                     <PendingNote item={doctor.bio} className="mt-4" />
                   ) : null}
@@ -169,7 +182,7 @@ function DoctorDetailPage() {
                   </dt>
                   <dd className="mt-1">
                     {experience ?? (
-                      <span className="text-muted-foreground italic">14 Years</span>
+                      <span className="text-muted-foreground italic">Awaiting confirmation</span>
                     )}
                   </dd>
                 </div>

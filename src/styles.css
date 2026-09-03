@@ -444,6 +444,10 @@ html {
   border-bottom: 1px solid #acacacd6;
 }
 
+.c-object-position-center {
+  object-position: -30px;
+}
+
 @media(max-width: 991px) {
   .main-section {
     padding-bottom: 50px;

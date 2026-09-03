@@ -75,6 +75,7 @@ export type Doctor = {
   slug: string;
   published: boolean;
   name: string;
+  description?: Maybe<string | string[]> | string | string[];
   role: Maybe<string>;
   qualifications: Maybe<string[]>;
   registrationNumber: Maybe<string>;

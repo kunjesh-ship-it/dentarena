@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, CalendarCheck, MapPin, MessageCircle, Phone, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, CalendarCheck, Heart, MapPin, MessageCircle, Phone, ShieldCheck, Sparkles, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -858,26 +858,82 @@ export function HomeDoctors() {
   if (publishedDoctors.length === 0) return null;
 
   return (
-    <section aria-labelledby="team-heading" className="bg-background band-md ourteam-section">
-      <Container className="grid gap-5 gap-sm-12 lg:grid-cols-12 lg:gap-16">
-        <Reveal className="lg:col-span-5">
-          <p className="eyebrow">Our team</p>
-          <h2 id="team-heading" className="mt-4 display-2 ourteam-title">
+    <section aria-labelledby="team-heading" className="bg-background band-lg ourteam-section">
+      <Container>
+        {/* Centered Heading */}
+        <Reveal className="text-center max-w-2xl mx-auto">
+          <p className="eyebrow tracking-wider uppercase text-primary font-semibold text-xs sm:text-sm">
+            Our team
+          </p>
+          <h2 id="team-heading" className="mt-3 font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-ink ourteam-title">
             The dentists you&rsquo;ll meet
           </h2>
-          <p className="mt-5 measure text-base leading-relaxed ourteam-description">
+          <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground ourteam-description">
             Registration numbers, experience and biographies are published once each clinician has
             confirmed them.
           </p>
         </Reveal>
 
-        <ul className="grid gap-6 sm:grid-cols-2 lg:col-span-7">
+        {/* Doctor Cards Grid */}
+        <ul className="mt-10 sm:mt-12 grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
           {publishedDoctors.map((doctor, i) => (
             <Reveal as="li" key={doctor.slug} delay={i * 70}>
               <DoctorCard doctor={doctor} />
             </Reveal>
           ))}
         </ul>
+
+        {/* Trust & Features Box */}
+        <Reveal delay={140} className="mt-8 sm:mt-10">
+          <div className="rounded-2xl sm:rounded-3xl bg-[#f0f8fa] border border-[#e2eef2] p-6 sm:p-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-[#d6e8ed]">
+              {/* Feature 1 */}
+              <div className="flex items-center gap-4 pt-2 md:pt-0 first:pt-0">
+                <div className="size-12 rounded-full bg-white shadow-xs flex items-center justify-center text-[#004d5a] shrink-0">
+                  <ShieldCheck className="size-6 stroke-[1.75]" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-ink text-sm sm:text-base">
+                    Verified &amp; trusted
+                  </h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
+                    All registrations and details are checked before publishing.
+                  </p>
+                </div>
+              </div>
+
+              {/* Feature 2 */}
+              <div className="flex items-center gap-4 pt-6 md:pt-0 md:pl-8">
+                <div className="size-12 rounded-full bg-white shadow-xs flex items-center justify-center text-[#004d5a] shrink-0">
+                  <Users className="size-6 stroke-[1.75]" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-ink text-sm sm:text-base">
+                    Experienced team
+                  </h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
+                    Years of hands-on experience across general and specialist care.
+                  </p>
+                </div>
+              </div>
+
+              {/* Feature 3 */}
+              <div className="flex items-center gap-4 pt-6 md:pt-0 md:pl-8">
+                <div className="size-12 rounded-full bg-white shadow-xs flex items-center justify-center text-[#004d5a] shrink-0">
+                  <Heart className="size-6 stroke-[1.75]" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-ink text-sm sm:text-base">
+                    Patient first
+                  </h3>
+                  <p className="text-xs sm:text-sm text-muted-foreground mt-0.5 leading-relaxed">
+                    We listen, explain and create treatment plans around you.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Reveal>
       </Container>
     </section>
   );

@@ -251,7 +251,7 @@ export const galleryItems: GalleryItem[] = [
     recommendedSize: "1200 × 1800 px",
     showOnHome: true,
     image: {
-      src: "/images/gallery/home-banner-1.png",
+      src: "/images/gallery/vesu-branch.png",
       alt: "image 1",
       width: 778,
       height: 693,
@@ -270,8 +270,8 @@ export const galleryItems: GalleryItem[] = [
     recommendedSize: "1200 × 1800 px",
     showOnHome: true,
     image: {
-      src: "/images/gallery/dent-arena-clinic-exterior-signboard.png",
-      alt: "dent-arena-clinic-exterior-signboard.png",
+      src: "/images/gallery/bhtar-branch.jpeg",
+      alt: "dent-arena-clinic-exterior-signboard",
       width: 778,
       height: 693,
       className: "object-cover",

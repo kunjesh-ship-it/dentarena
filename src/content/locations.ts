@@ -13,7 +13,7 @@ export const locations: Location[] = [
     ],
     locality: "Surat",
     region: "Gujarat",
-    postalCode: placeholder("Bhatar branch PIN code"),
+    postalCode: "395001",
     phone: clinic.phoneDisplay,
     description:
       "The Bhatar practice sits on the first floor of Sheetal Shopping Complex, on Bhatar Road close to IOC Colony and Subhash Nagar. It is set up for routine and family dentistry \u2014 check-ups, cleanings, fillings and follow-up visits \u2014 for people living and working around Athwa.",
