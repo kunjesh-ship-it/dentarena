@@ -72,7 +72,7 @@ function BranchPage() {
           <Button asChild size="lg">
             <a href={location.directionsUrl} target="_blank" rel="noopener noreferrer">
               <MapPin aria-hidden="true" />
-              Get directions
+              Get directions 
             </a>
           </Button>
           <Button asChild size="lg" variant="outline">

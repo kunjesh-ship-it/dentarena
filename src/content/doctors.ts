@@ -42,7 +42,7 @@ export const doctors: Doctor[] = [
     languages: placeholder("Languages spoken during consultations"),
     locationIds: ["bhatar", "vesu"],
     photo: {
-      src: "/images/gallery/minal-shah.jpg",
+      src: "/images/gallery/doctor-image.jpeg",
       alt: "Dr. Minal M. Shah - Smile Design Specialist at Dent Arena",
       width: 800,
       height: 800,

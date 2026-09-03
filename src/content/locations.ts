@@ -48,7 +48,11 @@ export const locations: Location[] = [
     landmark: placeholder("Nearest landmark for the Vesu branch"),
     parking: placeholder("Parking arrangement at Avadh Arena"),
     accessibility: placeholder("Lift / step-free access details for the 2nd floor"),
-    hours: placeholder("Vesu opening hours (weekdays, weekend, lunch break)"),
+    // hours: placeholder("Vesu opening hours (weekdays, weekend, lunch break)"),
+    hours: [
+      { days: "Monday to Saturday", hours: "9:30 am \u2013 8:00 pm" },
+      { days: "Sunday", hours: "By appointment only" },
+    ],
     mapEmbedUrl: placeholder("Google Maps embed URL for the Vesu branch"),
     directionsUrl:
       "https://www.google.com/maps/search/?api=1&query=Dent+Arena+Avadh+Arena+VIP+Road+Vesu+Surat+395007",

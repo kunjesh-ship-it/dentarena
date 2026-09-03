@@ -251,7 +251,7 @@ export const galleryItems: GalleryItem[] = [
     recommendedSize: "1200 × 1800 px",
     showOnHome: true,
     image: {
-      src: "/images/gallery/g1.jpg",
+      src: "/images/gallery/home-banner-1.png",
       alt: "image 1",
       width: 778,
       height: 693,
