@@ -278,6 +278,23 @@ export const galleryItems: GalleryItem[] = [
     },
     note: "Branch not confirmed for this photograph.",
   },
+   {
+    id: "clinic-exterior-signboard",
+    category: "Clinic exterior",
+    imageType: "authentic",
+    approved: true,
+    displayOrder: 3,
+    aspectRatio: "16/9",
+    recommendedSize: "1200 × 1800 px",
+    image: {
+      src: "/images/gallery/img-10.jpeg",
+      alt: "Image10",
+      width: 778,
+      height: 693,
+      className: "object-cover",
+    },
+    note: "Branch not confirmed for this photograph.",
+  },
   {
     id: "clinic-exterior-signboard",
     category: "Clinic exterior",

@@ -282,9 +282,9 @@ export const treatments: Treatment[] = [
     lastReviewed,
   },
   {
-    slug: "braces-and-orthodontics",
+    slug: "braces",
     published: true,
-    title: "Braces and Orthodontics",
+    title: "Braces",
     category: "orthodontics",
     summary:
       "Fixed appliances that gradually move teeth into a better position to improve alignment, bite and cleaning access.",
@@ -404,7 +404,7 @@ export const treatments: Treatment[] = [
       { question: "How many hours a day do I need to wear them?", answer: "Aligners only work while they are in the mouth. Your dentist will specify the daily wear time your plan is based on, and results depend on meeting it." },
       { question: "Are aligners suitable for every case?", answer: "No. Some bite corrections and larger movements are more predictable with fixed braces. An assessment is needed to decide." },
     ],
-    relatedSlugs: ["braces-and-orthodontics", "smile-designing", "teeth-whitening"],
+    relatedSlugs: ["braces", "smile-designing", "teeth-whitening"],
     availableAt: bothBranches,
     reviewedBy,
     lastReviewed,
