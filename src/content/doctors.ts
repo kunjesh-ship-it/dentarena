@@ -16,7 +16,7 @@ export const doctors: Doctor[] = [
     registrationNumber: placeholder("State Dental Council registration number"),
     experience: "14 Years",
     description: [
-      "A full profile for Dr. Mayank M. Shah will be published once the clinic has confirmed the details. In the meantime, you are welcome to ask about their experience when you book.",
+      "",
       "BDS from Bapuji Dental College & Hospital, Davangere and a skilled Implantologist.",
       "Founder at Dent Arena, Surat, serving patients with trust for 10 years.",
     ],
@@ -41,7 +41,7 @@ export const doctors: Doctor[] = [
     qualifications: ["BDS", "Smile Design Specialist"],
     role: "",
     description: [
-      "A full profile for Dr. Minal M. Shah will be published once the clinic has confirmed the details. In the meantime, you are welcome to ask about their experience when you book.",
+      "",
       "BDS from Bharatiya Vidyapeeth, Navi Mumbai, & a specialist in Cosmetic Dentistry & Smile Designing, with expertise in clear aligners.",
       "Co-Founder of Dent Arena, Surat, serving beautiful smiles for the last 10 years.",
     ],
