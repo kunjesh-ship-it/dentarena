@@ -251,7 +251,7 @@ export const galleryItems: GalleryItem[] = [
     recommendedSize: "1200 × 1800 px",
     showOnHome: true,
     image: {
-      src: "/images/gallery/vesu-branch.png",
+      src: "/images/gallery/main-banner.jpeg",
       alt: "image 1",
       width: 778,
       height: 693,

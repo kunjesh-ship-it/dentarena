@@ -75,15 +75,14 @@ export function SiteFooter() {
           ))}
         </Reveal>
 
-          <Reveal delay={250} className="mt-10 flex flex-col gap-3 border-t border-secondary/15 pt-6 text-xs sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            &copy; {year} {clinic.name}. All rights reserved.
-          </p>
-          <p className="max-w-xl">
-            Information on this website is general in nature and is not a substitute for a dental
-            examination or personal clinical advice.
-          </p>
-          </Reveal>
+          <div className="mt-10 flex flex-col gap-3 border-t border-secondary/15 pt-6 text-xs sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              &copy; {year} {clinic.name}. All rights reserved.
+            </p>
+            <p className="max-w-xl">
+              WebSIte Developed By <a href="https://www.sassyinfotech.com/" target="_blank" rel="noopener noreferrer">Sassy Infotech</a>
+            </p>
+          </div>
         </Container>
       </Reveal>
     </footer>
