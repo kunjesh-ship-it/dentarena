@@ -1,0 +1,1 @@
+function e(e){return{__placeholder:!0,label:e}}function t(e){return typeof e==`object`&&!!e&&e.__placeholder===!0}function n(e){if(!(e===void 0||t(e)))return e}export{t as n,e as r,n as t};
