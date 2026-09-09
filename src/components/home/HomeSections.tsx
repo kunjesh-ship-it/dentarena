@@ -39,7 +39,6 @@ const photo = (id: string) => clinicPhotos.find((p) => p.id === id) ?? clinicPho
 /* ------------------------------------------------------------------ Hero */
 
 export function HomeHero() {
-  const main = photo("reception");
   const inset = photo("clinic-exterior-signboard");
 
   return (
@@ -93,15 +92,13 @@ export function HomeHero() {
 
         <Reveal delay={200} className="lg:col-span-5" variant="image-reveal">
           <ParallaxImage offset={30} className="relative">
-            {main?.image ? (
-              <img
-                src={main.image.src}
-                alt={main.image.alt}
-                width={main.image.width}
-                height={main.image.height}
-                className="mask-arch inner-hairline aspect-4/5 w-full object-cover"
-              />
-            ) : null}
+            <img
+              src="/images/gallery/banner-logo.jpg"
+              alt="Dent Arena Dental Clinic"
+              width={778}
+              height={693}
+              className="mask-arch inner-hairline aspect-4/5 w-full object-cover"
+            />
 
             {inset?.image ? (
               <img
@@ -121,6 +118,51 @@ export function HomeHero() {
             </Reveal>
           </ParallaxImage>
         </Reveal>
+      </Container>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------- Treatments */
+
+export function HomeTreatments() {
+  const items = featuredTreatments.slice(0, 6);
+
+  return (
+    <section aria-labelledby="treatments-heading" className="bg-background band-lg treatments-section">
+      <Container className="grid gap-5 gap-sm-12 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-5">
+          <div className="lg:sticky lg:top-28">
+            <Reveal>
+              <p className="eyebrow">Treatments</p>
+              <h2 id="treatments-heading" className="mt-4 display-2 treatments-heading">
+                Care we provide{" "}
+                <span className="border-b-4 border-accent/70">most often</span>
+              </h2>
+              <p className="mt-5 measure text-base leading-relaxed treatments-description">
+                Each treatment page explains what it involves, how many visits to expect and how to
+                look after your teeth afterwards.
+              </p>
+              <Button asChild variant="outline" size="lg" className="mt-3 mt-sm-8">
+                <Link to="/treatments">See all treatments</Link>
+              </Button>
+            </Reveal>
+          </div>
+        </div>
+
+        <div className="lg:col-span-7">
+          <ul className="grid gap-5 sm:grid-cols-2">
+            {items.map((treatment, i) => (
+              <Reveal
+                as="li"
+                key={treatment.slug}
+                delay={Math.min(i, 3) * 70}
+              >
+                <TreatmentCard treatment={treatment} featured={i === 0} />
+              </Reveal>
+            ))}
+          </ul>
+        </div>
       </Container>
     </section>
   );
@@ -209,62 +251,17 @@ export function HomeTrustLine() {
                       </p>
                     </div>
 
-                    <div className="mt-6 flex items-center gap-2 pt-1 text-xs font-semibold text-primary opacity-sm-0 transition-opacity duration-200 group-hover:opacity-100">
+                    {/* <div className="mt-6 flex items-center gap-2 pt-1 text-xs font-semibold text-primary opacity-sm-0 transition-opacity duration-200 group-hover:opacity-100">
                       <span>Learn more about our approach</span>
                       <ArrowRight
                         aria-hidden="true"
                         className="size-3.5 transition-transform duration-200 group-hover:translate-x-1"
                       />
-                    </div>
+                    </div> */}
                   </div>
                 </Reveal>
               );
             })}
-          </ul>
-        </div>
-      </Container>
-    </section>
-  );
-}
-
-/* ------------------------------------------------------------- Treatments */
-
-export function HomeTreatments() {
-  const items = featuredTreatments.slice(0, 6);
-
-  return (
-    <section aria-labelledby="treatments-heading" className="bg-background band-lg treatments-section">
-      <Container className="grid gap-5 gap-sm-12 lg:grid-cols-12 lg:gap-16">
-        <div className="lg:col-span-5">
-          <div className="lg:sticky lg:top-28">
-            <Reveal>
-              <p className="eyebrow">Treatments</p>
-              <h2 id="treatments-heading" className="mt-4 display-2 treatments-heading">
-                Care we provide{" "}
-                <span className="border-b-4 border-accent/70">most often</span>
-              </h2>
-              <p className="mt-5 measure text-base leading-relaxed treatments-description">
-                Each treatment page explains what it involves, how many visits to expect and how to
-                look after your teeth afterwards.
-              </p>
-              <Button asChild variant="outline" size="lg" className="mt-3 mt-sm-8">
-                <Link to="/treatments">See all treatments</Link>
-              </Button>
-            </Reveal>
-          </div>
-        </div>
-
-        <div className="lg:col-span-7">
-          <ul className="grid gap-5 sm:grid-cols-2">
-            {items.map((treatment, i) => (
-              <Reveal
-                as="li"
-                key={treatment.slug}
-                delay={Math.min(i, 3) * 70}
-              >
-                <TreatmentCard treatment={treatment} featured={i === 0} />
-              </Reveal>
-            ))}
           </ul>
         </div>
       </Container>

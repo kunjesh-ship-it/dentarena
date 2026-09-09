@@ -101,7 +101,18 @@ function TreatmentDetailPage() {
             </div>
 
             <ListBlock title="Who it may suit" items={treatment.whoNeedsIt} />
-            <ListBlock title="Signs you may need it" items={treatment.signs} />
+            {/* <ListBlock title="Signs you may need it" items={treatment.signs} /> */}
+            <div className="rounded-2xl border border-destructive/30 bg-destructive/5 p-6">
+              <h2 className="text-2xl">When to contact the clinic</h2>
+              <ul className="mt-5 space-y-3">
+                {treatment.whenToContact.map((item) => (
+                  <li key={item} className="flex gap-2 text-sm leading-relaxed">
+                    <span aria-hidden="true" className="mt-0.5 shrink-0 text-destructive">•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
             <div className="treatment-sub-section">
               <h2 className="text-2xl treatment-sub-heading">How the treatment works</h2>
@@ -151,17 +162,7 @@ function TreatmentDetailPage() {
 
             <ListBlock title="Aftercare" items={treatment.aftercare} />
 
-            <div className="rounded-2xl border border-destructive/30 bg-destructive/5 p-6">
-              <h2 className="text-2xl">When to contact the clinic</h2>
-              <ul className="mt-5 space-y-3">
-                {treatment.whenToContact.map((item) => (
-                  <li key={item} className="flex gap-2 text-sm leading-relaxed">
-                    <span aria-hidden="true" className="mt-0.5 shrink-0 text-destructive">•</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+    
 
             <div>
               <h2 className="text-2xl">Frequently asked questions</h2>
@@ -212,7 +213,7 @@ function TreatmentDetailPage() {
               These clinicians see patients at the branches where this treatment is offered. Who
               carries out your treatment is confirmed at your consultation.
             </p>
-            <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
               {doctors.map((doctor) => (
                 <li key={doctor.slug}>
                   <DoctorCard doctor={doctor} />

@@ -39,8 +39,8 @@ function HomePage() {
   return (
     <>
       <HomeHero />
-      <HomeTrustLine />
       <HomeTreatments />
+      <HomeTrustLine />
       <HomePhotoStrip />
       <HomeBeforeAfter />
       <HomeVisitSequence />

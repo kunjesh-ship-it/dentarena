@@ -42,7 +42,7 @@ function TreatmentsIndexPage() {
       <PageHeader
         eyebrow="Treatments"
         title="Dental treatments at Dent Arena"
-        description="Clear, plain-English explanations of the care we provide, so you know what to expect before you sit in the chair. Every page covers what the treatment involves, how many visits it usually takes and how to look after your teeth afterwards."
+        description="Explore clear, simple explanations of the care we provide, so you know what to expect before you sit in the chair. Every page covers what the treatment involves, how many visits it usually takes and how to look after your teeth afterwards."
         className="treatments-hero-section"
         breadcrumbs={crumbs}
       />
