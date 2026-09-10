@@ -97,10 +97,10 @@ export function HomeHero() {
               alt="Dent Arena Dental Clinic"
               width={778}
               height={693}
-              className="mask-arch inner-hairline aspect-4/5 w-full object-cover"
+              className="mask-arch aspect-4/5 w-full object-cover"
             />
 
-            {inset?.image ? (
+            {/* {inset?.image ? (
               <img
                 src={inset.image.src}
                 alt={inset.image.alt}
@@ -109,7 +109,7 @@ export function HomeHero() {
                 loading="lazy"
                 className="hero-second-image inner-hairline absolute bottom-[-1.5rem] left-[-1.5rem] hidden size-36 rounded-full border-4 border-background object-cover sm:block"
               />
-            ) : null}
+            ) : null} */}
 
             <Reveal delay={400} className="absolute top-4 right-4" variant="scale-in">
               <p className="rounded-full bg-surface-warm/95 px-4 py-2 smallcaps text-ink shadow-soft">
@@ -796,8 +796,6 @@ const visitSteps = [
 ];
 
 export function HomeVisitSequence() {
-  const image = photo("consultation-room");
-
   return (
     <section aria-labelledby="visit-heading" className="relative overflow-hidden bg-background band-lg visit-work-section">
       <EnamelOutline
@@ -805,16 +803,14 @@ export function HomeVisitSequence() {
       />
       <Container className="relative grid items-center gap-14 lg:grid-cols-12 lg:gap-16">
         <Reveal className="lg:col-span-5">
-          {image?.image ? (
-            <img
-              src={image.image.src}
-              alt={image.image.alt}
-              width={image.image.width}
-              height={image.image.height}
-              loading="lazy"
-              className="mask-blob inner-hairline aspect-4/5 w-full object-cover"
-            />
-          ) : null}
+          <img
+            src="/images/gallery/banner-logo.jpg"
+            alt="Dent Arena Dental Clinic"
+            width={778}
+            height={693}
+            loading="lazy"
+            className="mask-blob inner-hairline aspect-4/5 w-full object-cover border-[2px] border-[#08787a]"
+          />
         </Reveal>
 
         <div className="lg:col-span-7">
@@ -968,7 +964,7 @@ export function HomeLocations() {
                         width={image.image.width}
                         height={image.image.height}
                         loading="lazy"
-                        className="inner-hairline aspect-16/10 w-full rounded-[2rem] object-cover"
+                        className="inner-hairline aspect-auto w-full h-auto rounded-2xl md:rounded-3xl object-contain"
                       />
                     ) : null}
                   </div>

@@ -301,7 +301,7 @@
  * ---------------------------------------------------------------- */
 
 @utility mask-arch {
-  border-radius: 3rem 3rem 0.875rem 0.875rem;
+  border-radius: 3rem;
   overflow: hidden;
 }
 
@@ -448,7 +448,7 @@ html {
   object-position: -30px;
 }
 
-.error{
+.error {
   color: red;
 }
 
@@ -822,6 +822,6 @@ html {
   }
 }
 
-.error{
+.error {
   color: red
 }
