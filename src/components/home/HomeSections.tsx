@@ -272,8 +272,27 @@ export function HomeTrustLine() {
 /* --------------------------------------------------------- Photo strip */
 
 export function HomePhotoStrip() {
-  const tiles = clinicPhotos;
-  if (tiles.length === 0) return null;
+  const staticPhotos = [
+    {
+      id: "static-vesu-signboard",
+      src: "/images/gallery/img-1.png",
+      alt: "Dent Arena Vesu Signboard",
+      caption: "Vesu branch signboard",
+    },
+    {
+      id: "static-bhatar-signboard",
+      src: "/images/gallery/img-2.png",
+      alt: "Dent Arena Bhatar Signboard",
+      caption: "Bhatar branch signboard",
+    },
+  ];
+
+  const dynamicTiles = clinicPhotos.filter(
+    (item) =>
+      item.image &&
+      item.image.src !== "/images/gallery/img-1.png" &&
+      item.image.src !== "/images/gallery/img-2.png",
+  );
 
   return (
     <section aria-labelledby="clinic-photos-heading" className="bg-surface-soft band-sm gallery-section">
@@ -300,7 +319,29 @@ export function HomePhotoStrip() {
             className="w-full"
           >
             <CarouselContent className="-ml-4 lg:-ml-6">
-              {tiles.map((item) => (
+              {/* Static First 2 Images */}
+              {staticPhotos.map((item) => (
+                <CarouselItem key={item.id} className="pl-4 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 lg:pl-6">
+                  <figure className="flex flex-col h-full">
+                    <img
+                      src={item.src}
+                      alt={item.alt}
+                      width={778}
+                      height={693}
+                      loading="lazy"
+                      className="inner-hairline aspect-square w-full rounded-3xl object-cover shrink-0"
+                    />
+                    {item.caption && (
+                      <figcaption className="mt-3 text-xs leading-relaxed text-muted-foreground">
+                        {item.caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                </CarouselItem>
+              ))}
+
+              {/* Dynamic Remaining Images */}
+              {dynamicTiles.map((item) => (
                 <CarouselItem key={item.id} className="pl-4 sm:basis-1/2 md:basis-1/3 lg:basis-1/4 lg:pl-6">
                   <figure className="flex flex-col h-full">
                     {item.image ? (
@@ -935,7 +976,20 @@ export function HomeDoctors() {
 /* --------------------------------------------------------------- Locations */
 
 export function HomeLocations() {
-  const branchPhotos = [photo("clinic-exterior-signboard"), photo("treatment-room")];
+  const branchPhotos: Record<string, { src: string; alt: string; width: number; height: number }> = {
+    bhatar: {
+      src: "/images/gallery/bhtar-branch.jpeg",
+      alt: "Dent Arena – Bhatar Branch",
+      width: 778,
+      height: 693,
+    },
+    vesu: {
+      src: "/images/gallery/main-banner.jpeg",
+      alt: "Dent Arena – Vesu Branch",
+      width: 778,
+      height: 693,
+    },
+  };
 
   return (
     <section aria-labelledby="locations-heading" className="bg-surface-warm band-lg location-section">
@@ -950,19 +1004,19 @@ export function HomeLocations() {
         <div className="mt-5 mt-sm-8 mt-sm-14 space-y-16 lg:space-y-24">
           {locations.map((location, index) => {
             const hours = confirmed(location.hours);
-            const image = branchPhotos[index];
+            const image = branchPhotos[location.id] ?? branchPhotos[location.slug];
             const flip = index % 2 === 1;
 
             return (
               <Reveal key={location.id} className="mb-10">
                 <div className="grid items-center gap-5 gap-sm-10 lg:grid-cols-12 lg:gap-16 ">
                   <div className={cn("lg:col-span-6", flip && "lg:order-2")}>
-                    {image?.image ? (
+                    {image ? (
                       <img
-                        src={image.image.src}
-                        alt={image.image.alt}
-                        width={image.image.width}
-                        height={image.image.height}
+                        src={image.src}
+                        alt={image.alt}
+                        width={image.width}
+                        height={image.height}
                         loading="lazy"
                         className="inner-hairline aspect-auto w-full h-auto rounded-2xl md:rounded-3xl object-contain"
                       />

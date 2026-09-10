@@ -242,43 +242,6 @@ export interface GalleryItem {
 
 export const galleryItems: GalleryItem[] = [
   {
-    id: "1",
-    category: "Clinic exterior",
-    imageType: "authentic",
-    approved: true,
-    displayOrder: 1,
-    aspectRatio: "16/9",
-    recommendedSize: "1200 × 1800 px",
-    showOnHome: true,
-    image: {
-      src: "/images/gallery/main-banner.jpeg",
-      alt: "image 1",
-      width: 778,
-      height: 693,
-      className: "object-cover",
-    },
-    note: "Branch not confirmed for this photograph.",
-  },
-
-  {
-    id: "clinic-exterior-signboard",
-    category: "Clinic exterior",
-    imageType: "authentic",
-    approved: true,
-    displayOrder: 2,
-    aspectRatio: "16/9",
-    recommendedSize: "1200 × 1800 px",
-    showOnHome: true,
-    image: {
-      src: "/images/gallery/bhtar-branch.jpeg",
-      alt: "dent-arena-clinic-exterior-signboard",
-      width: 778,
-      height: 693,
-      className: "object-cover",
-    },
-    note: "Branch not confirmed for this photograph.",
-  },
-   {
     id: "clinic-exterior-signboard",
     category: "Clinic exterior",
     imageType: "authentic",
