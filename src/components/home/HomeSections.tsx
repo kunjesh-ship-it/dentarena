@@ -70,7 +70,7 @@ export function HomeHero() {
 
           <Reveal delay={160}>
             <p className="mt-6 lead hero-section-description">
-              {clinic.tagline} From routine check-ups to implants, braces and root canal treatment,
+              {clinic.tagline} From routine check-ups to implants, braces, aligners and root canal treatment,
               Dent Arena looks after families across Surat at two neighbourhood clinics.
             </p>
           </Reveal>
@@ -111,11 +111,11 @@ export function HomeHero() {
               />
             ) : null} */}
 
-            <Reveal delay={400} className="absolute top-4 right-4" variant="scale-in">
+            {/* <Reveal delay={400} className="absolute top-4 right-4" variant="scale-in">
               <p className="rounded-full bg-surface-warm/95 px-4 py-2 smallcaps text-ink shadow-soft">
                 Two branches
               </p>
-            </Reveal>
+            </Reveal> */}
           </ParallaxImage>
         </Reveal>
       </Container>
