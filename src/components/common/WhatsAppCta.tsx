@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation } from "@tanstack/react-router";
 import { MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -27,7 +27,20 @@ export function WhatsAppButton({
   );
 }
 
-export function WhatsAppCtaSection({ context, className }: { context?: string, className?: string }) {
+export function WhatsAppCtaSection({ context, className }: { context?: string; className?: string }) {
+  const { pathname } = useLocation();
+
+  let phoneDisplay = clinic.phoneDisplay;
+  let currentTelHref = telHref;
+
+  if (pathname.includes("/doctors/dr-minal-shah")) {
+    phoneDisplay = "+91 7984985687"; // Dr. Minal Shah phone number
+    currentTelHref = "tel:+917984985687";
+  } else if (pathname.includes("/doctors/dr-mayank-shah")) {
+    phoneDisplay = "+91 99130 25687"; // Dr. Mayank Shah phone number
+    currentTelHref = "tel:+919913025687";
+  }
+
   return (
     <section aria-labelledby="whatsapp-cta-heading" className={cn("bg-ink py-16 text-secondary sm:py-20", className)}>
       <Container>
@@ -51,9 +64,9 @@ export function WhatsAppCtaSection({ context, className }: { context?: string, c
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-secondary/40 text-secondary hover:bg-secondary/10 hero-btn">
-              <a href={telHref}>
+              <a href={currentTelHref}>
                 <Phone aria-hidden="true" />
-                Call {clinic.phoneDisplay}
+                Call {phoneDisplay}
               </a>
             </Button>
           </div>

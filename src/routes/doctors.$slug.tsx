@@ -61,7 +61,14 @@ function DoctorDetailPage() {
   const registration = confirmed(doctor.registrationNumber);
   const doctorTreatments = getTreatmentsForDoctor(doctor);
   const treatmentScopeConfirmed = Boolean(confirmed(doctor.treatmentSlugs));
-  const branches = doctor.locationIds
+  const locationIds =
+    doctor.slug === "dr-mayank-shah"
+      ? ["bhatar"]
+      : doctor.slug === "dr-minal-shah"
+        ? ["vesu"]
+        : doctor.locationIds;
+
+  const branches = locationIds
     .map((id) => getLocation(id))
     .filter((l): l is NonNullable<typeof l> => Boolean(l));
 
@@ -77,7 +84,7 @@ function DoctorDetailPage() {
         ]}
       >
         <div className="flex flex-wrap gap-3">
-          <WhatsAppButton context={`Appointment with ${doctor.name}`} />
+          <WhatsAppButton context={`Appointment with ${doctor.name}`} slug={doctor.slug} />
           <Button asChild variant="outline" size="lg">
             <Link to="/book-appointment">Request appointment</Link>
           </Button>
@@ -261,7 +268,7 @@ function DoctorDetailPage() {
         </Container>
       </Section>
 
-      <WhatsAppCtaSection context={doctor.name} />
+      <WhatsAppCtaSection context={doctor.name} slug={doctor.slug} />
     </>
   );
 }

@@ -26,7 +26,13 @@ export function DoctorCard({ doctor, className }: { doctor: Doctor; className?: 
   const { setVariant } = useCursorStore();
   const photo = confirmed(doctor.photo);
   const qualifications = confirmed(doctor.qualifications);
-  const branches = doctor.locationIds
+  const locationIds =
+    doctor.slug === "dr-mayank-shah"
+      ? ["bhatar"]
+      : doctor.slug === "dr-minal-shah"
+        ? ["vesu"]
+        : doctor.locationIds;
+  const branches = locationIds
     .map((id) => getLocation(id)?.shortName)
     .filter(Boolean)
     .join(" and ");
@@ -128,7 +134,7 @@ export function DoctorCard({ doctor, className }: { doctor: Doctor; className?: 
                   Practises at
                 </div>
                 <div className="mt-0.5 font-medium text-foreground leading-snug">
-                  {branches || "Bhatar and Vesu"}
+                  {branches || (doctor.slug === "dr-mayank-shah" ? "Bhatar" : doctor.slug === "dr-minal-shah" ? "Vesu" : "Bhatar and Vesu")}
                 </div>
               </div>
             </div>
