@@ -149,7 +149,7 @@ function BranchPage() {
           <h2 id="branch-team" className="text-2xl sm:text-3xl">
             Dentists at {location.shortName}
           </h2>
-          <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-2">
             {doctors.map((doctor) => (
               <li key={doctor.slug}>
                 <DoctorCard doctor={doctor} />

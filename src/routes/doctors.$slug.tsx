@@ -84,9 +84,11 @@ function DoctorDetailPage() {
         ]}
       >
         <div className="flex flex-wrap gap-3">
-          <WhatsAppButton context={`Appointment with ${doctor.name}`} slug={doctor.slug} />
+          <WhatsAppButton context={`Appointment with ${doctor.name}`} />
           <Button asChild variant="outline" size="lg">
-            <Link to="/book-appointment">Request appointment</Link>
+            <Link to="/book-appointment" search={{ doctor: doctor.slug }}>
+              Request appointment
+            </Link>
           </Button>
         </div>
       </PageHeader>

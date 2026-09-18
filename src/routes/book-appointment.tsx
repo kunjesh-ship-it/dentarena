@@ -14,7 +14,16 @@ const crumbs = [
   { name: "Request an appointment", path: "/book-appointment" },
 ];
 
+type BookAppointmentSearch = {
+  doctor?: string;
+};
+
 export const Route = createFileRoute("/book-appointment")({
+  validateSearch: (search: Record<string, unknown>): BookAppointmentSearch => {
+    return {
+      doctor: typeof search.doctor === "string" ? search.doctor : undefined,
+    };
+  },
   head: () => ({
     ...pageMeta({
       title: "Request an Appointment",
@@ -28,6 +37,25 @@ export const Route = createFileRoute("/book-appointment")({
 });
 
 function BookAppointmentPage() {
+  const { doctor } = Route.useSearch();
+
+  const bhatarPhone = {
+    label: "Book appointment Bhatar",
+    href: "tel:+91159632454",
+  };
+
+  const vesuPhone = {
+    label: "Book appointment Vesu",
+    href: "tel:+917984985687",
+  };
+
+  const callButtons =
+    doctor === "dr-mayank-shah"
+      ? [bhatarPhone]
+      : doctor === "dr-minal-shah"
+        ? [vesuPhone]
+        : [bhatarPhone, vesuPhone];
+
   return (
     <>
       <PageHeader
@@ -47,12 +75,16 @@ function BookAppointmentPage() {
               <p className="mt-2 text-sm leading-relaxed">
                 Speak to the front desk for urgent problems, or if you would rather book by phone.
               </p>
-              <Button asChild className="mt-4 w-full">
-                <a href={telHref}>
-                  <Phone aria-hidden="true" />
-                  {clinic.phoneDisplay}
-                </a>
-              </Button>
+              <div className="mt-4 flex flex-col gap-2.5">
+                {callButtons.map((btn) => (
+                  <Button asChild key={btn.label} className="w-full">
+                    <a href={btn.href}>
+                      <Phone aria-hidden="true" />
+                      {btn.label}
+                    </a>
+                  </Button>
+                ))}
+              </div>
             </div>
 
             <div className="rounded-2xl border border-border bg-card p-6">

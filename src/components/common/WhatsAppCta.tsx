@@ -27,16 +27,33 @@ export function WhatsAppButton({
   );
 }
 
-export function WhatsAppCtaSection({ context, className }: { context?: string; className?: string }) {
+export function WhatsAppCtaSection({
+  context,
+  slug,
+  className,
+}: {
+  context?: string;
+  slug?: string;
+  className?: string;
+}) {
   const { pathname } = useLocation();
+
+  let doctorSlug = slug;
+  if (!doctorSlug) {
+    if (pathname.includes("/doctors/dr-minal-shah")) {
+      doctorSlug = "dr-minal-shah";
+    } else if (pathname.includes("/doctors/dr-mayank-shah")) {
+      doctorSlug = "dr-mayank-shah";
+    }
+  }
 
   let phoneDisplay = clinic.phoneDisplay;
   let currentTelHref = telHref;
 
-  if (pathname.includes("/doctors/dr-minal-shah")) {
+  if (doctorSlug === "dr-minal-shah" || pathname.includes("/doctors/dr-minal-shah")) {
     phoneDisplay = "+91 7984985687"; // Dr. Minal Shah phone number
     currentTelHref = "tel:+917984985687";
-  } else if (pathname.includes("/doctors/dr-mayank-shah")) {
+  } else if (doctorSlug === "dr-mayank-shah" || pathname.includes("/doctors/dr-mayank-shah")) {
     phoneDisplay = "+91 99130 25687"; // Dr. Mayank Shah phone number
     currentTelHref = "tel:+919913025687";
   }
@@ -58,7 +75,7 @@ export function WhatsAppCtaSection({ context, className }: { context?: string; c
           </div>
           <div className="flex flex-col gap-3">
             <Button asChild variant="whatsapp" size="lg" className="hero-btn">
-              <Link to="/book-appointment">
+              <Link to="/book-appointment" search={doctorSlug ? { doctor: doctorSlug } : undefined}>
                 <MessageCircle aria-hidden="true" />
                 Request appointment
               </Link>
