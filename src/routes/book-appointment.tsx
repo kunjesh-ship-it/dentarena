@@ -41,7 +41,7 @@ function BookAppointmentPage() {
 
   const bhatarPhone = {
     label: "Book appointment Bhatar",
-    href: "tel:+91159632454",
+    href: "tel:+919913025687",
   };
 
   const vesuPhone = {
